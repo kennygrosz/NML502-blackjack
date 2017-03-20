@@ -56,7 +56,7 @@ if bj_sum(playerh2) <= 11
     pay(3) = -inf;
 else
     pay(3) = payout(playerh2, dealer);
-end
+end 
 
 
 %---hit a third time---
