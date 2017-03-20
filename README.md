@@ -1,6 +1,6 @@
 # NML 502 Final Project Proposal
-# Jeremy David, Ken Groszman
-# 3/20/2017
+### Jeremy David, Ken Groszman
+### 3/20/2017
 
 ## Statement of Problem:
 Blackjack, sometimes called twenty-one, is the world’s most popular casino game [1- Scarne Complete Guide to Gambling]. It is also commonly cited as the casino game where the player has the best odds of winning, with the most widely accepted “optimal strategy” (below) giving the player 49-51 odds of winning in the long-run. In this project, we will teach an artificial neural network how to play blackjack and see what strategy it suggests to maximize profitability in different blackjack situations (varying the number of decks, number of players at the table, etc.). As an extension, we will see if we can simulate teaching our network how to “count cards”, a strategy used by professional gamblers to increase the probabilities of winning. We hope that through this project, we will either confirm or debunk the common blackjack “optimal strategy” and gauge the effect of a variety of factors on a player’s profitability in a blackjack game.
