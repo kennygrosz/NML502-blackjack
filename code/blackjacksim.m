@@ -92,7 +92,7 @@ pay(4) = payout(playerh3, dealer);
 dealer_sum = d_sum;
 cards = [dealer(1), dealer(2), player(1), player(2),hit1,hit2,hit3];
 
-opt_strat = find(pay==max(pay),1); %***** NEED TO INCORPORATE HOW TO DEAL WITH TIES. Right now, just takes the first answer (in theory, the least risky??)
+opt_strat = find(pay==max(pay),1,'first'); %***** NEED TO INCORPORATE HOW TO DEAL WITH TIES. Right now, just takes the first answer (in theory, the least risky??)
 opt_pay = max(pay);
 
 
