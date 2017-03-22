@@ -1,4 +1,4 @@
-function p = payout(player, dealer)
+function [p, p_sum] = payout(player, dealer)
 %given the dealer and player's hands, calculate the payout
 
 p_sum = bj_sum(player);

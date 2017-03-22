@@ -1,4 +1,4 @@
-function [cards, dealer_sum, opt_strat, opt_pay] = blackjacksim(p,decks)
+function [cards, sums, optimal_strat, optimal_payout] = blackjacksim(p,decks)
 %play blackjack for p players and one dealer with the specified number of
 %decks
 
@@ -28,7 +28,8 @@ end
 %-------play as player------------------
 
 %---stand---%
-if bj_sum(player) <= 11
+p_sum(1) = bj_sum(player);
+if p_sum(1) <= 11
     pay(1) = -inf;
 else
     pay(1) = payout(player, dealer);
@@ -40,7 +41,8 @@ hit1 = deckdraw(1,C,decks); %draw one card
 playerh1 = [player, hit1]; %add hit to player's cards
 C = [C, hit1]; %add the hit card to the cards in play
 
-if bj_sum(playerh1) <= 11
+p_sum(2) =bj_sum(playerh1);
+if p_sum(2) <= 11
     pay(2) = -inf;
 else
     pay(2) = payout(playerh1, dealer);
@@ -52,7 +54,8 @@ hit2 = deckdraw(1,C,decks); %draw one card
 playerh2 = [playerh1, hit2]; %add hit to player's cards
 C = [C, hit2]; %add the hit card to the cards in play
 
-if bj_sum(playerh2) <= 11
+p_sum(3) = bj_sum(playerh2);
+if p_sum(3) <= 11
     pay(3) = -inf;
 else
     pay(3) = payout(playerh2, dealer);
@@ -64,7 +67,7 @@ hit3 = deckdraw(1,C,decks); %draw one card
 playerh3 = [playerh2, hit3]; %add hit to player's cards
 C = [C, hit3]; %add the hit card to the cards in play
 
-pay(4) = payout(playerh3, dealer);
+[pay(4),p_sum(4)] = payout(playerh3, dealer);
 
 % %---split---
 % if player(1) ~= player(2)
@@ -89,11 +92,11 @@ pay(4) = payout(playerh3, dealer);
     
 % generate outputs to function
 
-dealer_sum = d_sum;
+sums = [d_sum, p_sum];
 cards = [dealer(1), dealer(2), player(1), player(2),hit1,hit2,hit3];
+pay;
 
-opt_strat = find(pay==max(pay),1,'first'); %***** NEED TO INCORPORATE HOW TO DEAL WITH TIES. Right now, just takes the first answer (in theory, the least risky??)
-opt_pay = max(pay);
+[optimal_strat,optimal_payout] = opt_strat(pay,p_sum); 
 
 
 end
