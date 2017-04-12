@@ -93,8 +93,7 @@ C = [C, hit3]; %add the hit card to the cards in play
 % generate outputs to function
 
 sums = [d_sum, p_sum];
-cards = [dealer(1), dealer(2), player(1), player(2),hit1,hit2,hit3];
-pay;
+cards = [dealer(1), dealer(2), player(1)];
 
 [optimal_strat,optimal_payout] = opt_strat(pay,p_sum); 
 
