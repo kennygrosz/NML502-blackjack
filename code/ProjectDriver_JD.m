@@ -322,7 +322,7 @@ deal_bust = 0;
 % deal_blackjack = isblackjack(dealer);
 
 %%%simulate dealer 
-while Dealer_val <= 16 || Dealer_val <= 17 && Dealer_soft==1
+while Dealer_val <= 16 || (Dealer_val <= 17 && Dealer_soft==1)
     dealer(end + 1) = Deck(deck_loc);
     deck_loc = deck_loc + 1;
     [Dealer_val, Dealer_soft] = sumcards(dealer);
