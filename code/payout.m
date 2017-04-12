@@ -1,6 +1,9 @@
 function p = payout(player, dealer)
 %given the dealer and player's hands, calculate the payout
 
+p_sum = sumcards(player);
+d_sum = sumcards(dealer);
+
 p_bj = isblackjack(player);
 d_bj = isblackjack(dealer);
 
