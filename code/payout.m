@@ -57,3 +57,27 @@ if length(hand) == 2
 end
     
 end
+
+function [score, soft] = sumcards(cards)
+values = [11 2 3 4 5 6 7 8 9 10 10 10 10];
+score = 0;
+soft = 0;
+aces = 0;
+for i = 1:length(cards)
+    
+    if cards(i) == 1
+        aces = aces + 1;
+    else
+        score = score + values(cards(i)); %% add making it 1 if it would bust u
+    end
+end
+
+for i = 1:aces
+    if score <= 10 %if sum is small enough, add 11. This means the sum is "soft"
+        score = score+11;
+        soft = 1;
+    else
+        score = score+1;
+    end
+end
+end

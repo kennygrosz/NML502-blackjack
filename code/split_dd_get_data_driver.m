@@ -2,7 +2,7 @@ function split_dd_get_data_driver
 
 % gen training data
 n = 50000;
-data  = zeros(3,n); %3 cards (two player cards, dealer card)
+data  = zeros(4,n); %3 cards (two player cards, dealer card)
 desired = zeros(3,n); %one in n representation of split, DD, stay decision
 
 for i = 1:n
@@ -16,8 +16,8 @@ Training_Desired = desired;
 
 
 % gen testing data
-n = 10000;
-data  = zeros(3,n); %3 cards (two player cards, dealer card)
+n = 50000;
+data  = zeros(4,n); %3 cards (two player cards, dealer card)
 desired = zeros(3,n); %one in n representation of split, DD, stay decision
 
 for i = 1:n
@@ -26,10 +26,12 @@ for i = 1:n
     data(:,i) = Inp;
 end
 
+% sum(desired,2)
+
 Testing_Data = data;
 Testing_Desired = desired; 
 
-save('SDD_Data.mat','Training_Data', 'Training_Desired', 'Testing_Data', 'Testing_Desired')
+save('SDD_Data2.mat','Training_Data', 'Training_Desired', 'Testing_Data', 'Testing_Desired')
 
 end
 
@@ -122,7 +124,13 @@ D_Out =D_Out(:,win_strat);
 % disp('pay and winning strategy')
 % disp(pay)
 % disp(win_strat)
-        
+
+[S1,S2]=sumcards(player(1:2));
+Inp = [map(dealer(1));S1;S2;b];
+
+% Inp
+% pause 
+
 end
 
 function b = cansplit(c1,c2)
